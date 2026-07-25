@@ -1,0 +1,13 @@
+name: Cross-repository deployment proof
+
+on:
+  deployment:
+
+permissions: {}
+
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print harmless target baseline marker
+        run: printf '%s\n' 'TARGET_BASELINE_WORKFLOW'
