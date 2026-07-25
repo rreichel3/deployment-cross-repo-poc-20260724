@@ -11,3 +11,10 @@ jobs:
     steps:
       - name: Print harmless target baseline marker
         run: printf '%s\n' 'TARGET_BASELINE_WORKFLOW'
+      - name: Compare deployment and workflow SHAs
+        env:
+          DEPLOYMENT_SHA: ${{ github.event.deployment.sha }}
+          WORKFLOW_SHA: ${{ github.sha }}
+        run: |
+          printf 'DEPLOYMENT_SHA=%s\n' "$DEPLOYMENT_SHA"
+          printf 'WORKFLOW_SHA=%s\n' "$WORKFLOW_SHA"
